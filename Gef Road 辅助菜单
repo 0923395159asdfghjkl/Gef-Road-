@@ -1,0 +1,221 @@
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function eYTvCfRZfkjoJWVpPpHIKmlV(data) m=string.sub(data, 0, 99) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local Library = loadstring(Game:HttpGet(eYTvCfRZfkjoJWVpPpHIKmlV('zkJkHZHyuGsfWyGlzkwMLNNzlbAkMIJCcprigIjdAoxhaNnbDaEciszMuSDchKqychrSUpFnHKmXxMiBlDZYSQKEWRhxkAPHVGuaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2Jsb29kYmFsbC8tYmFjay11cHMtZm9yLWxpYnMvbWFpbi93aXphcmQ=')))()
+
+local PhantomForcesWindow = Library:NewWindow(eYTvCfRZfkjoJWVpPpHIKmlV('SgKFdvExHmfoCFIqJqHPJIXDvsZHwKPVpWKyMJzckyrFIKlAgdrmFTDPmjcteSHbprPNmHFLlWNSGKXPTDVilgkaaiJHHDOZWGjR2VmIFJvYWQg6L6F5Yqp6I+c5Y2V'))
+
+-- 食物类功能
+local FoodSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('JXQUmJdqoMeMKOloEjYksibopXbFoErNssGRdpCmtgTysninDivXArRXGBzuOmrjxaeDyUNnrPmGlMcPFUkuxjrquHXcPUArxoc6aOf54mpICYg6KGl57uZ'))
+FoodSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('BdjwBtSlfAdHYHBgTqItnXjJAjKtVnHUQeYPLlVYTagbGkXqDlloxQrCdhHBbXHPsQZDzuJxubJzADRQQtzRPpiYRbafOSmnfFJ5Lyg6YCB5Yiw6aOf54mp'), function()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild(eYTvCfRZfkjoJWVpPpHIKmlV('GRZFRkmsJUMRbDUTjvncvfGfbfrNjRAtTGCgkFkOUmbdChlxtoYGSMktRyRcbIdZTfBRzfFKvExrfgTUjxVfbeGYzpzihfYtauWSHVtYW5vaWRSb290UGFydA=='))
+    
+    local pickups = workspace:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('lDWujdvciMUimadmSeyvMaMgTeHSwdRexYnZtRYaOiPOkDKecBxOsYzMmSlACVQcQFKdaxCwZricGtpadoqIUmmRJXVOdQwrxuuUGlja3Vwcw=='))
+    if pickups then
+        local food = pickups:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('MfupLmICMFyuYpRWizpPqWRZcWJciENSZYZpAWkUwsrBPAdyUZvyDYeqGvJuTmSWaKIQvQPQBkgqTGZpBdNjrKAlcKtUaMDAGFIRm9vZA=='))
+        if food and food:IsA(eYTvCfRZfkjoJWVpPpHIKmlV('FgOKULDgrCbgcwBGmBlwnCQOUxffzKnAAPCqKtgPNusIiNcMhWiSbWLjikfmFRHkNXOzQXqxBjQdTmjXQmLPPHORAcOkwBxLuuYQmFzZVBhcnQ=')) then
+            humanoidRootPart.CFrame = food.CFrame
+            warn(eYTvCfRZfkjoJWVpPpHIKmlV('wOqVMhsqlVxcfssGyCZZFelwfKjPopvQfHagZfpljDbvPGZoVFTXJedXxeqHBaITBfXLiJuxIarJNdAGDGaGTHuVdSVXjEJwGPU4pyFIOW3suS8oOmAgeWIsOmjn+eJqe+8gQ=='))
+        else
+            warn(eYTvCfRZfkjoJWVpPpHIKmlV('vIjQcaxPpGXnqqIQJqAlnYcZVQTQSZnnfdOiAewPqQyYxlBXfvVsLCgXUQvCLMmdseSBZEsRBzkyVVoUNVzDgXmLbcrUGtnNNis4p2MIOaJvuS4jeWIsOmjn+eJqe+8gQ=='))
+        end
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('BsDWdHKqUwGMXUTrYiwBSJeQJoHOAwsrRATcZgErXnLkTIjqWdiYxAAGddkxTxtmUOyjgEqcWzDggVLyzqGOIPJXQUoIHhMDhBZ4p2MIOaJvuS4jeWIsOeJqeWTgeagj++8gQ=='))
+    end
+end)
+
+FoodSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('iDvaVpDZlubbFjSvLnpybhhgdrMOLbVxcyNwNLaWcEiHiLonSyiNemAPdYBmEtqAkvroNTsRAkhoqcnIeJPNBsDWmAQOFvWpOWL5Lyg6YCB5Yiw5rG95rC0'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('YFqpiNEiNhTfupbtyJzecJCOXCOntcTerqcwVdQIkfaKsVUYBMgqxoGSfszvJTIwXPHhBTYZZEUELKSFEQAFRPGDMrZyWffkoHRU29kYQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('YNfpJNjZfgDNRkyjCqbPxmLEiUqhnZAJdiVvikhYfJPMdsxzIFEyFieJpiSJtjPuelWNiPcWXDPLrvNbmQLSpuzXJsECFcZMglf4pyFIOW3suS8oOmAgeWIsOaxveawtO+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('aJjjRMgBlpoFJSRPjEcmjZrJvlrHQJxJvgXPxkGLkcDhNGcNESovccphtcFgUOvLjhEHcUmJhJnbypkUWIcNzFSyWtMUTRchQQI4p2MIOaJvuS4jeWIsOaxveawtO+8gQ=='))
+end)
+
+FoodSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('dSboDLrdVAqelgUoUThPBNvYSXjEnNqPvceHImpzbkBfOCgAkTsigRcPswEgoUXgqdlhdnuHxwpAtDvRvMJnSOdAwjAvFwqVqjr5Lyg6YCB5Yiw5Yy755aX5YyF'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('EpjmFzBehMdqDCIxkQPiVyFYRLlxsuQvsMFlbKQohgVGjElGhUYfLUpAzCeMbbbHXmkwZrQdmykRDLyDnIccdPljhKygjtVVagDTWVka2l0'), eYTvCfRZfkjoJWVpPpHIKmlV('eFagChWLBFfCnVLDYCEEBfXyFcaomjyShiwOhDqCtStWxzCsoqjkdDkTeGDayazokKmyqYBIBYFNbMUrHaBKbRrJphoxbagHuOr4pyFIOW3suS8oOmAgeWIsOWMu+eWl+WMhe+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('IsuSlcYwyuMBbyicgNQIpZSYjIiTEGASIUOtKcXdRuruaVGOavivpVUYpDJcUdvqifhEWJSCZBVihLbvbOmnNnceAOntLOlYwZc4p2MIOaJvuS4jeWIsOWMu+eWl+WMhe+8gQ=='))
+end)
+
+-- 武器类功能
+local WeaponSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('YJPSdcnxdnKGqbojDwGLfifhKJvAufXfwvdwzldgAFshBTIKHUDZoALxkNDnstADdwmRnvAoMlvdXolntKUIKBbDroIbSPNWOiC5q2m5Zmo'))
+WeaponSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('OhRPHtEBzoVJQrUiZbNbuETwIjJRwPxvLrpLSKMEvprIRYVhstBzDeGdPfXPBncTLsFDXUOXSOPozESFzjxLMKEfHMhnnXVkVMw5Lyg6YCB5Yiw5qOS55CD5qOS'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('yjvwiDyfZChxuamuRKPWACqysrpSldrVXjXQdzDfEzhqfwhiBQinqbgNcBYhBVdpiBdOTlPHydyjQsbAPRkFdMALPOEZVfkUoxrQmF0'), eYTvCfRZfkjoJWVpPpHIKmlV('iAFAiVuOYkkOveyXMDEAeBdvBnwYIQaeIALfNQPWISURXvVyIfOAIUxmHaoAvpCxcWKsyQLtlzlddJecxtGmUANmLflCcWEuaJS4pyFIOW3suS8oOmAgeWIsOajkueQg+ajku+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('WIRxiIxUOXhhoUqdGycyjKpOtBZNlIOaIaSUlWRgusCklZOpEbEsVcQXFWdVQUsmqAdBWfmiGFOcEKKbEZlVoWfIcRatmKWEThM4p2MIOaJvuS4jeWIsOajkueQg+ajku+8gQ=='))
+end)
+
+WeaponSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('nsUmjofvkXqlKYMlbagenRMJapbxDsxZhBGVPbjhcwQWUVvRtNubChhMLqDyGqsxJWmCbtKgubCSbFqtOhFcvWAeXkHHHTeuAMj5Lyg6YCB5Yiw5pKs5qON'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('tgYVXbQfGqDzMXNpLCoFAgXypCbMwTaMZJpfmVzWDDWYSnbENkWdQgIrLgTmAbtkfHbrwFgJOUgpYwJPaDsJdDasIXvWANYLvveQ3Jvd2Jhcg=='), eYTvCfRZfkjoJWVpPpHIKmlV('EjqxShzUnVlJgweLPKpROjNxpQNqwGiLWLDTzKhOsCOugbwCZRqqFeMNHEDbyDYwMSVTLbpznWofhTpxpYcEkHkBMFvNjMlmRSg4pyFIOW3suS8oOmAgeWIsOaSrOajje+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('MvTWfTebMYYmVTXQdupntuPKysyzeRoiFeLcrpYFbrTnxzcRvSlnWjegdVfldUbThwYThIivLWijOYcJAWDZuZEyYyQesfyczYd4p2MIOaJvuS4jeWIsOaSrOajje+8gQ=='))
+end)
+
+WeaponSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('DHTtjjLirZAgVnwmmPyGwtgJnhOBgvDlGEMAddttoLppAkQMHOkUkEoqsEyBmXFSVpHROuMfwutcrHgQjfwKqdGeaFiApnqqiup5Lyg6YCB5Yiw6ZSk5a2Q'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('kwQyTwuHnWLgbEXZMPpoxtEPlWEBhqFOMMOAAoYOithWiAphKytPuHXRvKCkMhpshcFngekhJTNclQqnXSYTHfcDmrBukghyeyDSGFtbWVy'), eYTvCfRZfkjoJWVpPpHIKmlV('EPtEjqyCxjFgOtrORSJhrITgZTqJNkSztfEVolnxlGnKGWAVsPYHUcrAgTHSPPfakHkRhgGAGgnNtIvMptAeHSuFilKnjDjDQAt4pyFIOW3suS8oOmAgeWIsOmUpOWtkO+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('EKovkImQVIvKvaMFBtFBBPvNqmBweMJsykaSAQzGrRQKfhHcaVxKoZscuitPrsDzkbyxeRYEkMnNgELIuRamKMsdTYWGwIwukzO4p2MIOaJvuS4jeWIsOmUpOWtkO+8gQ=='))
+end)
+
+WeaponSection:CreateTextbox(eYTvCfRZfkjoJWVpPpHIKmlV('pYTXqoybhloNFnPZlSyjJMrYbVKZLoqfBnIilSKBhYTZqgkNYmqyZLFNvxZQrSrOcxjzNzVsmyVwDoirzamJqFumTvYcqxbqmnE6K6+572u5q2m5Zmo5pS75Ye76IyD5Zu0'), function(size)
+    local sizeNum = tonumber(size)
+    if sizeNum then
+        for _, tool in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if tool:IsA(eYTvCfRZfkjoJWVpPpHIKmlV('YgwLdpiXWFkjRMAPfPuumpHbQrjaBHSAetNWtLAgzwxpKziXDHaJfuKyCtncFRFsrPvGwGXjaxRBETwbzXbeXhkKMVpUSHkplQhVG9vbA==')) and tool:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('jFybzyLPTKTiOwnEoCYbNCwkarVWtBGeuObCbxkPUPVNytZoLTjpYItXmdDbofPQhAxPafuORfcAOmpPFHCvGPuyARhJTwKiDGMSGFuZGxl')) then
+                tool.Handle.Size = Vector3.new(sizeNum, sizeNum, sizeNum)
+                print(eYTvCfRZfkjoJWVpPpHIKmlV('QHDjTYyPfLFxDdaZTHcjuDsTlPzXVSXpyOeoNvUDiARUXKnXvPfHuGFtPJKsJxkgglfNbXqSOPIkTVWAPuHoHNgHLtIHqYMCUtf4pyFIOatpuWZqOaUu+WHu+iMg+WbtOW3suiuvue9ruS4ujog') .. sizeNum)
+            end
+        end
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('wsoxjfXcpjPcvNpSTXKlMqfPSNxNqykVGqTrowLygeHojovpIFOZgLFCyJXdShPTUwarsRtVUiQvpPsPxoSukUmJKVnBJwDtxwf4p2MIOivt+i+k+WFpeacieaViOaVsOWtl++8gQ=='))
+    end
+end)
+
+-- 枪械类功能
+local GunSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('jSvlWbOXyrkkmXbIWdmKJjGnyeuvQCjoYYkRJSmjjWrRDBPzZnAADHIDMIstLeZFhdhjApIaWXgfdAvqeSHuOmgYkkxApuMVSph5p6q5qKwICYg5by56I2v'))
+GunSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('QUfKcRkLRGErpyiiMIhxVxHrjEcWIdTCHHqjDxUWMUWQzzWdkGFzlPKdcUYtmMZyDGAArhWCIrgjsQhbBpJWNcitGJUUOimrjtH5Lyg6YCB5Yiw5omL5p6q'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('ZKbwcCDQdDxiBkWWVtRJBgJfJqyjyaQgznUpuafoZqXAbCcoSsTGrLfJqbOVSVNDANBOmYBtTcjhLPciOFyJDjpTnVallSRIcvDSGFuZGd1bg=='), eYTvCfRZfkjoJWVpPpHIKmlV('AmLSoWSVcyGcYeSmIrlsICXpjeajzQYPgPAUWsyOcjXdFOstQlmwVlJmvRADWFTCzfnzcLPvOPkvARDLznnRStmVXqvUwyYttjE4pyFIOW3suS8oOmAgeWIsOaJi+aequ+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('aNNZWdTTmWJaJUsrtOSAYgkiPXskYWxairEPsURgpKspzMXlxMWblJmkPvBkbGsdfAqgSDECNEhvneMWcLCAZpkrgzZdKiyThhu4p2MIOaJvuS4jeWIsOaJi+aequ+8gQ=='))
+end)
+
+GunSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('gvKsQyJlYvHSBNMRNgpwPBbzicYTMkjxKXvatfjSszKvmGgsyadCKCCGfdcweiRIqMklWoQOacTYNhFdOcpKxNVUFmcImTDKuMh5Lyg6YCB5Yiw6Zyw5by55p6q'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('uHJQjyCYwbZaFVegTJKQIoaPhkwYHmXqvUNhJUHJJviKQDdzPBuWdmpFuDRFyIDgfxKYBQTCXOdLjULtlNzQiWYKDKmlHclVdUsU2hvdGd1bg=='), eYTvCfRZfkjoJWVpPpHIKmlV('yPaDIFasErDalqTXgzPVsGWHNGZdFRfuGEHZQIZOuSqxQoDGVhGySFITwxiyyYxYVqlbsGzaSIFMbXwHuWtxiyzLRRKCdrnxQWo4pyFIOW3suS8oOmAgeWIsOmcsOW8ueaequ+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('xUKScxOjODkfdimDOAyaiQgjTUJgvFhDDEhDYPBlmOwLzVWRcRBCbAtnfjoSsRvBeMSRUNMJjpHoMBFUCmJQyIxPCPYqEWKBKvA4p2MIOaJvuS4jeWIsOmcsOW8ueaequ+8gQ=='))
+end)
+
+GunSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('GwRsDMrACyZLMhIrSfCOogcjuZEWFdSDPLuFfduUpzVFkHovfDWIwVutbsFwotdWhnekIqPoEgoMkoQAvNadxzQEmVHDwjANhHI5Lyg6YCB5Yiw5a2Q5by5'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('yrpMHcfLkPIjESrdVjbelDSVixLHtLJzgGEuAamCIaAFvufGZlPvDUxnTmaQQoaLrVBVdmWWuMOLxfVSUVuOctnzJyizsbsvCsUQnVsbGV0cw=='), eYTvCfRZfkjoJWVpPpHIKmlV('EvoCuVUoSUsMhavKIbAHfZpXXlxhqSZVjxzitjAzJnPrguoVJoIfjisSyBvmrdDfZSAQzMkNYadgfVeEKFhNKnGiYEIwLcrIXhG4pyFIOW3suS8oOmAgeWIsOWtkOW8ue+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('rBLChNOrUOZSeDbfaCfcMumCPdGJhvQxYXphyqSzWveUHDhxIcOGCzuUnwIQgSpmxZLalpJaKASNDVHYgemWzuJTkyAQiNNQQFg4p2MIOaJvuS4jeWIsOWtkOW8ue+8gQ=='))
+end)
+
+GunSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('eILtxJAVWQggowjjgvaZvKrslDakiigAFDVCiIzNuZSgyhKkRAEltuIrxVCTUhpnPMdKYiwUnGFyusfUrWcHBPnwbxskAdsKARj5Lyg6YCB5Yiw6Zyw5by5'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('rxVjkiEcguVQDHbTGvrVnAwGWdmDNMOGxHOccQhiEvVyGIieLOfiGtLqQMNpLnaDrDeDASwqXftlYNEXkPxvjRvuCOHPYQDbuyRU2hlbGxz'), eYTvCfRZfkjoJWVpPpHIKmlV('dSdqrjZMhIcqMCXxxqwSSrgrKtLnXztZkejBVYiYUFAPrsqgFNZyYbfFRuOVTcdaJhsbbnmNZMieWlPhVKEiXYolkyrpcAzFSEW4pyFIOW3suS8oOmAgeWIsOmcsOW8ue+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('YnwXLPOVgsFdcuOcdZZkQhwgbAbZGpMOuJZWKYJEbVWutSeFCbknrqILcAoDCuEHBUUCPPYHEbGlqtSnTdPuQUiGKlpPVubpseL4p2MIOaJvuS4jeWIsOmcsOW8ue+8gQ=='))
+end)
+
+-- 资源 & 其他功能
+local ResourceSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('lyajAISOJYLYkmhtqeQZhWyNLegtnZcPfiTtBUhkxwUausaejBQYMtAjEpYzEgIOkjhLkQpPBTsNHtaKdQfCsWbcQTeiQqlhMTh6LWE5rqQICYg5YW25LuW'))
+ResourceSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('SKTLyWCsWITnwOrbVIVGsKzyXhRWVmdfyhTIjoMJFgOMvUSBdKJLsTtbxJHrSLeRNwzeiwREAFMshRDbawBmkixBVXfUjXJjXvE5Lyg6YCB5Yiw6YeR6ZKx'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('JZZIJKhqJjKVztMVEWAOeSYxwPJMwIlHJIiMgxdImAPkOkOHwpVimHeFTtbiYHGpCwBhpDmqamxHShESNBAguLsLyOxYJbHxaxTTW9uZXk='), eYTvCfRZfkjoJWVpPpHIKmlV('raOuMUsWWCNkpLdVeBdkIviRWYLhPMagVAepWGGokMFoWdkgAqxgvSzsFQwDGkrZUnPLDohVeHSevLZATrihdgGsYWYTpejTnCQ4pyFIOW3suS8oOmAgeWIsOmHkemSse+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('pCOeiqdEsvkqZIBXAXussbdcvqOJKPOnpTarknMEqhEPfRoSSUpEtOARUYriPwvyoGUUttKVevsXWTpLcEByxhdiOEXlsSllBfT4p2MIOaJvuS4jeWIsOmHkemSse+8gQ=='))
+end)
+
+ResourceSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('woaGmImfPMBJSmJrivLaLMmQrVJMwJfqjjRSlHfuMSkLcitQnouGRkdwoHplfoimEBUilurrvWfvOJIYunFKGMMHXMbNfSUZzqy5Lyg6YCB5Yiw6YeR54mZ'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('vXmepSrOLBWqkzVpbTOeXusmxhnopLuajuclwqyqzYEIvPYjQNkAhkaahrsMZYwUiIWuITIRXZRKIkLeXHWLWSNmRvLIkOMkPPcR29sZCBUb290aA=='), eYTvCfRZfkjoJWVpPpHIKmlV('IwhbhjauwNeMzDlIGDGebgaynsBqBTCqLpvJyDBbjuQteYElmjDATlLkMcxeQzsJVApOwRyBKPvjNPqkIWLQXYKvUMUbDQOriPU4pyFIOW3suS8oOmAgeWIsOmHkeeJme+8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('RqhiNIVyUaOVKixoMwBMuiNcVLRZvnCKvKNCpBvWVVreyQupbhwIQvDgmtzYIXbWKLJeTFLPmKKJLfYfmcTjcpwxpZQhQncNQgS4p2MIOaJvuS4jeWIsOmHkeeJme+8gQ=='))
+end)
+
+ResourceSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('QAaOgdTtEMcRpKwoCCPKiJKpxjmTzcpFGnHkMJtKaSkWNotEuLnFprRoNWdBTdSfhStLlqUKfCmgLdHiDEbLWgcCFhdtpBDXOKF5Lyg6YCB5YiwR1BT'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('DUYGLYqqCnpSfHFnXDVQIPakfuqXuuLmRAbkoyauDqsOiQYYAaLBsoTEyNqGaUJuNkMLdYtpZpYVRJEadncaVECaduBSHnaWXyuR1BT'), eYTvCfRZfkjoJWVpPpHIKmlV('fszoUcZHSIcIJvQaLNESFoHhUbvojRSyErqokJtFYsuodaJEfZCZlkXSwuevSwgRUzBARbTiOOuoqvrDwNvhRezQlLgrbwtbhjU4pyFIOW3suS8oOmAgeWIsEdQU++8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('zsZfqoBkRITSBRfrzQAKCJmvfEOfltgfrmGpPIsYgvWkEhsOlWiEOhQzCHEEfRSrOBLyYBkIKWMrhLSZhYQoCAzVAsaedioCwXg4p2MIOaJvuS4jeWIsEdQU++8gQ=='))
+end)
+
+ResourceSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('KhXHvasLJFnPcFeRUdPzgPZMblPBqqPGKQyUtZWbYAPHgNDVjXisZRpNapfBrXIcxhXycAUTgmjIsvPwcpfIUDWhECvSDFtZmwR5Lyg6YCB5Yiw6ZuV5YOP'), function()
+    teleportToItem(eYTvCfRZfkjoJWVpPpHIKmlV('seTlJhyPtZBMSKFgbLaZvIFXlwgiqJjjhPaDObqYjeSnKDuUyIGzdanbvSeBhSMZxhfURVLqKrnSAMwwqpmjwtNWsfoFFUAJAFOU3RhdHVl'), eYTvCfRZfkjoJWVpPpHIKmlV('cVECWKdRhBxIWxWnfzHPEdXsWjSbYIPGhcGRqLMucnsxsIQCdsyGdyJZYxTOUmpeeDsBuBzyyRVLuLEaUwSYctJoordAOsAsQoc4pyFIOW3suS8oOmAgeWIsOmbleWDj++8gQ=='), eYTvCfRZfkjoJWVpPpHIKmlV('dAFwLLCIHZKhMyWxVCOIJptwbNTOTSeYDRiyfoBlgLfbUsgUAWSTvngyBvqXJqBawvDBbmmfbOMvRivRSnIbOelfRFFprnepRcW4p2MIOaJvuS4jeWIsOmbleWDj++8gQ=='))
+end)
+
+-- 玩家增强功能
+local PlayerSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('jcwPgAGDUtgiWdchxUGxoGZOgKAIoaujAlaTXibGHFMDlgNEqusWfLTGXARsgbttmlkfZRlXEBdSvkhXfZyfNqggPhxUdCjNqQg546p5a625aKe5by6'))
+PlayerSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('sFjblVRjepzGLwbvNyckhiLDRQBsVnZoftHhyoIkcvGMXqDheXhcTqPCCorqrXwwiKIpCwKGXOMalVDbkDYUOVyMzWENFQQAPms6aOe6KGM5qih5byP'), function()
+    loadstring(game:HttpGet(eYTvCfRZfkjoJWVpPpHIKmlV('XLiupEOmsCGreamZrYiglHmdqMoEJIgIqUVZlKNOudxYbXjvPObeVcBVwHzsKdoFrbSfhXziHRiritCVzqbnSNDKpozdHkbmnuIaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1hORU9GRi9GbHlHdWlWMy9tYWluL0ZseUd1aVYzLnR4dA==')))()
+    warn(eYTvCfRZfkjoJWVpPpHIKmlV('NbrHRijgWmZoEfSJuHxDQBYPqAaoLdbqXDMRntvfSAZiQdpnhbJFsnAEsUxRmzBKjwcujdQiqZjsqjJqnwSnkMAabmRiIcCmaWj4pyFIOW3suWQr+eUqOmjnuihjOaooeW8j++8gQ=='))
+end)
+
+PlayerSection:CreateTextbox(eYTvCfRZfkjoJWVpPpHIKmlV('RqtGpgxZjeJyVbYjWgfhnhPjVbnqmamAuJznCXitSfUXsrsipOelraTPmUfKxZJbqapkEuCEmqSKtFsyYfUZgyMUNgOOtFGpbQO6K6+572u6Lez6LeD6auY5bqm'), function(jumpHeight)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:FindFirstChildOfClass(eYTvCfRZfkjoJWVpPpHIKmlV('NurbYEOiyaPxBGsiHnPXBhasweSHzahFTWDruGwNsBIkUyXTNubGDRzoswhcfzmqzptOFZNObuEuCELpAGpNsYQGjGYKOuNYwAySHVtYW5vaWQ='))
+    
+    if humanoid and tonumber(jumpHeight) then
+        humanoid.JumpPower = tonumber(jumpHeight)
+        print(eYTvCfRZfkjoJWVpPpHIKmlV('TASFwkZIwlTeXaCZvTbFnMUbDOBJHwPCWGWELqYGzZSImoMHPZinaRBsYtSnMwwsnQEhemFmAHNhUqsNaUeDKCjeRkyfcROiXJt4pyFIOi3s+i3g+mrmOW6puW3suiuvue9ruS4ujog') .. jumpHeight)
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('GyKJGruRPpXpLyCyYmYqkOXPzPKCOQCothmIUnDioKOvwOniKhinVzTMdFNQkIBEHeLEiEAVHPKxntVEVQFbSbWAVioTgkFdSpr4p2MIOaXoOaViOi+k+WFpe+8gQ=='))
+    end
+end)
+
+PlayerSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('OlLkegYyLuLvHYBARKKRwFoSqNmYGgHKtRStJYVAafXazTiTAwLvCuqZUVhORpHnAstsgDDoaYwlXgaKTfjXerecufwfVzPPKSn5peg6ZmQ6Lez6LeD'), function()
+    local InfiniteJumpEnabled = true
+    game:GetService(eYTvCfRZfkjoJWVpPpHIKmlV('aKGzQPxellwHdYvHKzKzIpfItkHYKIkyniTlhKMdCsptYEZYbmEPNCPwofgIMXsXZzOJWZYkmMoUbFBwxlkUBleyZNfMfPSiNScVXNlcklucHV0U2VydmljZQ==')).JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game.Players.LocalPlayer.Character:FindFirstChildOfClass(eYTvCfRZfkjoJWVpPpHIKmlV('tlWgiEmuhVuvXdnhWjXLGmzvsacdghcqChKfoxYkKjxqlAzxQsMOtiXwVKAcXZCrvtiJxFttBEAggbjivfLqICfyEIuQmIItuAxSHVtYW5vaWQ=')):ChangeState(eYTvCfRZfkjoJWVpPpHIKmlV('nwxDZGZleITvgbLxZahANqpDqRXpOnSutxgWgPoYdONtjkHyLsXMOSSdROzAiOuffFtCknUuaPkWAaorzVoVcaHfQYQbSimBeldSnVtcGluZw=='))
+        end
+    end)
+    warn(eYTvCfRZfkjoJWVpPpHIKmlV('sHmBpPissUfYUCvVWSxhmFQPUcVNrrScTHgJmrBxPmFvejasZVXWmHYuvJXvGbblFImrJDtkqvzDVGoywVgyFZUYgIjxfUhndXJ4pyFIOW3suWQr+eUqOaXoOmZkOi3s+i3g++8gQ=='))
+end)
+
+PlayerSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('LXBwpsBbusMuzlgsaAAwQAAdkYozHXbOovlZWoqpbRFlrhVbRmenFzWlpbKKmPiPexuciyAqEjUUhvRkksZfzfprIyepFFGdzfx5YWo5Lqu5qih5byP'), function()
+    local lighting = game:GetService(eYTvCfRZfkjoJWVpPpHIKmlV('YVqesahsqoKzsbmNuzBmladebLphxficeqsdlvkZvkATkdbXzKXIyztfwHlGOSdlpkZzURzrmdAqXCaHjPDUDQrzRXOawlGEbdwTGlnaHRpbmc='))
+    lighting.Ambient = Color3.fromRGB(255, 255, 255)
+    lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+    warn(eYTvCfRZfkjoJWVpPpHIKmlV('kfexWHHJSMGXOoJrwhxOOVqfDFMHVYAnNEfNdlDijJMknuacqElcAQgzJngZxrLkWFuiGuxQBriPLVnEnZwYsAhwpTuGIAxWIKu4pyFIOW3suWQr+eUqOWFqOS6ruaooeW8j++8gQ=='))
+end)
+
+PlayerSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('PtyLFtgkEXsydHZdmlmzjvcEjbQKhfmokdywKKFGtwtEqLjdZYSVoYiBMQeKXXqxKkAMKJYorsshMsPvYEknjFEjDEcgOHdlXrf56e76Zmk5qCR5pyo5LyY5YyW'), function()
+    for _, v in pairs(workspace:GetChildren()) do
+        if v.Name == eYTvCfRZfkjoJWVpPpHIKmlV('xXePbeDbKoFFSvSMOmBlRlHCRlOKTBTvDNNllFqjeCCIjYoMaAcIXFIraSAvKFTWTrffrIIhqeSlBZWXIQxxhArdwknkZDWOKoUVHJlZXM=') then
+            v:Destroy()
+        end
+    end
+    warn(eYTvCfRZfkjoJWVpPpHIKmlV('jYLJMcUWPjXALbkuhjKEZSfoWicboQZajckNBPYwDIyspwnBvBLSxCnQOXciiXLhmtncuVSmAdVvEvaEpQBOhgaUnzZRpKkRNhC4pyFIOW3suenu+mZpOagkeacqO+8jOS8mOWMluaAp+iDve+8gQ=='))
+end)
+
+-- 僵尸（GEF）控制
+local GEFSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('CqqfIcMvSswJabiQPsFGnYooWaeRbwQJXaMKkNBcXYErLGNxALeUOvmiQUiHmzabntMIWDIMazmRWEadjVtBWGAhocfMHaUtDqE5YO15bC45o6n5Yi2'))
+GEFSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('esnRPYzRBUZhobizUQsbCvgyZOEGmWWogapewrICEcppGJnBoERGZFMBHVSpGLFFfksUkFdfjlFtPETQYNyftGCaWNogSZSnPFw56aB55So5YO15bC45pS75Ye7'), function()
+    local GEFs = workspace:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('MILJKBvYAXzARhEPzIpbQLXhlqoLshRBWJknnSCiGNMrQeKQegUcOIhnXbQCEexqpyJhFUtlPvWoPWzYtUmdQnFAFGEWCTyluBlR0VGcw=='))
+    if GEFs then
+        local count = 0
+        for _, child in pairs(GEFs:GetChildren()) do
+            local hurtbox = child:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('oDMFuAQSdhxUESxKgNpCDfLoCQBybsDCqdLLVnAyDujhYPkXYypfpINFezsYbasJRNXZJNEoszjzQioIYWRcoHxqMzWIkUBWOBESHVydGJveA=='), true)
+            if hurtbox then
+                hurtbox:Destroy()
+                count = count + 1
+            end
+        end
+        if count > 0 then
+            warn(eYTvCfRZfkjoJWVpPpHIKmlV('XdikWmrpURieowpdhcNohNUmRqaaqPmMBRdESZLCweKRYLvRUgvyLHOrIwMFVQqQEwGtISqqSamjzFLxfwNfemYQEqiQbupQkuo4pyFIOW3suenu+mZpCA=') .. count .. eYTvCfRZfkjoJWVpPpHIKmlV('FGaUCCUIJwMUzyGqmobPkYRoKBfJhLJRmHmLjYFxrXmhbIZZhzGMhwyyRczEDPwkNkbMJTADqfWVgitoitFqESCpHQJNqXNESodIOS4quWDteWwuOaUu+WHu+WIpOWumu+8gQ=='))
+        else
+            warn(eYTvCfRZfkjoJWVpPpHIKmlV('JvPvVutrHCMPcuRCgMttDLfavvrRkgdqiDAVUZVMelleYYIkJOyZynUyHXieXiaEpdPvKFMOKgBNEAxopIMxakUdtFXkmZZATwg4p2MIOacquaJvuWIsOWDteWwuOaUu+WHu+WIpOWumu+8gQ=='))
+        end
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('zLsMcMnQcefGBZfIZZmtIxxSnRYoQPSXFczPVRlPGhXRGurEivVRwMltgldfJuRdzUeimjPbJBJjbfbDsMgShhDCGcIQErpkdrf4p2MIOacquaJvuWIsOWDteWwuOe+pOe7hO+8gQ=='))
+    end
+end)
+
+GEFSection:CreateButton(eYTvCfRZfkjoJWVpPpHIKmlV('TQZlryniQNZfGQTNBodNvGGbYogQLSEpDKfBGYvPlmwZuibmVniAVsfVCaefzIWqSBkAUWnLBpmUuiJsvObFbQdKZFGPOWXNbKz5Ya757uT5YO15bC4'), function()
+    local GEFs = workspace:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('vchCgbuRePmOsNeqSQfRuygYWLBTJaybqQzraikqFZzOkrQrHAHbscUrODVrglgxdHVkpGyYfHArsvEibrVDjXJWOyQQwKvEkWVR0VGcw=='))
+    if GEFs then
+        for _, obj in pairs(GEFs:GetChildren()) do
+            local hitbox = obj:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('XNKbtrHcTvELNcZhutjvhWpOOplXTJcBGdgdFeCaCsUbOvLZuJyCorgxlZbndwrQBCThXeRDHUovXLnYGobkVFKoJakJexBUjOhSGl0Ym94')) or Instance.new(eYTvCfRZfkjoJWVpPpHIKmlV('HVRZooSWhuiFOmPDdmmvqxrEWSWqjjhMBsoqEbVwRLuSWUMJIEpccGKEYRiAFeaftNaMhuRAyIlUZxdrrzEJqPVFjJpYJDuIGeaUGFydA=='))
+            hitbox.Name = eYTvCfRZfkjoJWVpPpHIKmlV('arWFHaYuCnwDOLFIQnSBttZBJGcxFcMLoUkhvwISptzDnsOlnyKJfuvWKDjBKISCxbTJZanUrbnzmTmrzhgZbxusDvsNLTfTAuwSGl0Ym94')
+            hitbox.Size = Vector3.new(1, 1, 1)
+            hitbox.Anchored = true
+            hitbox.CanCollide = false
+            hitbox.Transparency = 1
+            hitbox.Parent = obj
+            if obj:IsA(eYTvCfRZfkjoJWVpPpHIKmlV('XfkTVfyXhMLVVHuygFfLQCDTxpXJDKlydaSVHfWRiIZpWkrjRCTdqryrSAzaXcddnDCeiJWBYyhuSPNWFKYmLeJIUzoFyGsrVIlTW9kZWw=')) then
+                hitbox.Position = obj.PrimaryPart and obj.PrimaryPart.Position or obj:GetModelCFrame().Position
+            elseif obj:IsA(eYTvCfRZfkjoJWVpPpHIKmlV('kiudoXzQBbGLfoGiaxydPHJKKEpHxXyNfmXBZloCLfoREdXZSzAreBCQusvpOBpTUDjqPoQppGCIWGOyUdmhfleDUShfbJYtAtMQmFzZVBhcnQ=')) then
+                hitbox.Position = obj.Position
+            end
+        end
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('NULQEQDAWWqnlVeYwoaSqRmFeHfdyOXrfwcqEGAuxXHHGTYcIQGCUbUoTupbFLkRQTbnmxPOcyBjnaEuxCwBrQEoVDVXCJbCLjn4pyFIOW3suWGu+e7k+aJgOacieWDteWwuO+8gQ=='))
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('fpckhUnIySOEDUZKxyWprFndntfUNijeeGUuKJkjEjvvuZzZnapuBgcvYiXbMjSxgycQHirUVihdLgviVSCpqxYlusGTHFYlHKn4p2MIOacquaJvuWIsOWDteWwuOe+pOe7hO+8gQ=='))
+    end
+end)
+
+-- 通用传送函数
+function teleportToItem(itemName, successMsg, errorMsg)
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild(eYTvCfRZfkjoJWVpPpHIKmlV('LNduPhQNDCfStsjDKiEEreZMzZvUjNcDgEieInxTGIdxxbUBKxQsfzAiHsTnFjJrZACfAxoBNVXHREyduiYwsnWZozaDdZSZaliSHVtYW5vaWRSb290UGFydA=='))
+    local pickups = workspace:FindFirstChild(eYTvCfRZfkjoJWVpPpHIKmlV('ctVrinKdbjLxrBjDgIlqqfNXbKueFpwsxJpsHVgKdQRgqcDmIJhkxSTKDeQEdFWzrqTrxSJDXqKzaxjLlRWVizmBNwkBMjwrtTeUGlja3Vwcw=='))
+    
+    if pickups then
+        local item = pickups:FindFirstChild(itemName)
+        if item and item:IsA(eYTvCfRZfkjoJWVpPpHIKmlV('GSjJbosKMICNjcVXuvlDdMLTLlPYXaYMJySaIzysKfqUdoHAMgoTMBiEphCIRcHhLoogPHMvAhSsVKDAiZLPoDFxNLTPkoLgYBwQmFzZVBhcnQ=')) then
+            humanoidRootPart.CFrame = item.CFrame
+            warn(successMsg)
+        else
+            warn(errorMsg)
+        end
+    else
+        warn(eYTvCfRZfkjoJWVpPpHIKmlV('tamxzvVcTgYfzWrJSWAeAEqvPoodzCVecIyTYHowyOPbPfkZlNcMqlYpawbXslvXDPIKNORzegzKoRUwZfEqsYbpZFYSqDQjkLE4p2MIOacquaJvuWIsOeJqeWTgeagj++8gQ=='))
+    end
+end
+
+-- 作者信息
+local CreditsSection = PhantomForcesWindow:NewSection(eYTvCfRZfkjoJWVpPpHIKmlV('yCOMtgMdhSPeEelgBjLPlrkhYiRUcLuEgnnntiNLObVvxCJaDAzUYjUySpSzYGyYNjsfKCoWkNauohQYnXtrlfmoTDPOgPFHodD6ISa5pys5L2c6ICF'))
+CreditsSection:CreateLabel(eYTvCfRZfkjoJWVpPpHIKmlV('FApXscwvOBmUNcYhsMCGkKuKgNPAojeedpedfRbktCJknjgSEccEdodtSnjNXCWYkqhGBmKivWymjjPaxrAZfeIQUapYNcPUNJfQlk6IOmWg+iAgOWfueaguQ=='))    
